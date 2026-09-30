@@ -30,7 +30,9 @@ jobs:
           - aarch64-linux-android
           - i686-linux-android
           - armv7-linux-androideabi
-    runs-on: ${{ matrix.os }}
+    runs-on:
+      group: Public
+      labels: [self-hosted, rpcpool, public]
     steps:
       - uses: actions/checkout@v4
 

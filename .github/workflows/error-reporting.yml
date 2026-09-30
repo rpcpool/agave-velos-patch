@@ -8,7 +8,9 @@ on:
 
 jobs:
   slack:
-    runs-on: ubuntu-22.04
+    runs-on:
+      group: Public
+      labels: [self-hosted, rpcpool, public]
     steps:
       - env:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}

@@ -78,7 +78,9 @@ jobs:
   windows-gcs-upload:
     if: ${{ needs.windows-build.outputs.channel != '' || needs.windows-build.outputs.tag != '' }}
     needs: [windows-build]
-    runs-on: ubuntu-22.04
+    runs-on:
+      group: Public
+      labels: [self-hosted, rpcpool, public]
     steps:
       - name: Download
         uses: actions/download-artifact@v4
@@ -98,7 +100,9 @@ jobs:
   windows-gh-release:
     if: ${{ needs.windows-build.outputs.tag != '' }}
     needs: [windows-build]
-    runs-on: ubuntu-22.04
+    runs-on:
+      group: Public
+      labels: [self-hosted, rpcpool, public]
     steps:
       - name: Download
         uses: actions/download-artifact@v4
